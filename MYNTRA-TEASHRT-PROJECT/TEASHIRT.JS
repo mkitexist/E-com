@@ -238,7 +238,9 @@ function modalll(e, i) {
 
 function productDisplay(l) {
   // let p = l;
-  localStorage.setItem("id", l);
+//   localStorage.setItem("id", l);
+    window.document.location = "TEASHIRT-LANDINGPAGE.HTML" + "?id=" + l;
+
 }
 // =======================================
 function SearchFunction() {
