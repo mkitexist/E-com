@@ -10,7 +10,11 @@ fetch("./TEASHIRT.JSON")
     // dataaa.push(...data);
 
     // landing(data);
-    productId = +localStorage.getItem("id");
+      let paramId = new URL(document.location).searchParams;
+      productId = paramId.get("id");
+
+
+//     productId = +localStorage.getItem("id");
     console.log(productId);
     product();
   });
