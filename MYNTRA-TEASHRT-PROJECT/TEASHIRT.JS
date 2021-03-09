@@ -1,4 +1,5 @@
 let dataa = [];
+let dataaa = [];
 let p = [];
 let dim = 0;
 let id;
@@ -9,9 +10,10 @@ fetch("./TEASHIRT.JSON")
   .then((data) => {
     console.log(data);
     dataa.push(...data);
-    // dataaa.push(...data);
+    dataaa.push(...data);
     id = data.length + 2;
     console.log(dataa);
+    console.log(dataaa);
     // dati();
   });
 
@@ -40,18 +42,20 @@ let BrandNames = [
   "louis philipe",
   "puma",
 ];
-let price = ["200-400 rs", "400-700 rs", "7000-1900 rs"];
+// let price = ["200-400 rs", "400-700 rs", "7000-1900 rs"];
 
-function filterObjects(l) {
+function MultifilterOrsingle(l) {
   let ding = document.getElementById(l);
-  console.log(ding);
+
+  console.log(dataa);
+  console.log(dataaa);
   p.push(ding.innerText);
+  // p=ding.innerText;
   console.log(p);
-  if (p.length > 1) {
-    location.reload();
-    // console.log(p);
-  }
-  // // let dingg = document.getElementById(6);
+  // if (p.length > 1) {
+  //   location.reload();
+  //   // console.log(p);
+  // }
   // console.log(ding.innerHTML);
   let k = ding.innerText;
 
@@ -59,24 +63,19 @@ function filterObjects(l) {
   console.log(lowr);
   console.log(typeof lowr);
 
-  // let dim = document.getElementById(l);
-  setTimeout(() => {
-    dataa.forEach((e, i) => {
-      // let list = document.getElementById("listPage");
-      // let pin = list.removeChild(list.childNodes[dataa.length + 1]);
-      let list = document.getElementById(i + 1);
-      console.log(list);
-      list.remove();
-    });
-  }, 1000);
+  console.log(dataa);
+  dataa.forEach((e, i) => {
+    // let list = document.getElementById("listPage");
+    // let pin = list.removeChild(list.childNodes[dataa.length + 1]);
+    let list = document.getElementById(e.id);
+    console.log(list);
+    list.remove();
+  });
   // ================
-  let colornames = dataa.filter((e, i) => {
-    // let ding = document.getElementById(l);
-
-    if (
-      (Object.values(e).includes(lowr) || e[lowr] == true) &&
-      i < dataa.length
-    ) {
+  //  &&
+  //   i < dataa.length
+  let furtherFilter = dataa.filter((e, i) => {
+    if (Object.values(e).includes(lowr) || e[lowr] == true) {
       console.log(lowr);
 
       let listPageDiv = document.createElement("div");
@@ -103,11 +102,20 @@ function filterObjects(l) {
             </a>
   `;
       listPage.appendChild(listPageDiv);
+      return true;
     }
   });
-
+  return furtherFilter;
   // ====================
   // ========================
+}
+function filterObjects(l) {
+  dataa = MultifilterOrsingle(l);
+  if (dataa.length < 1) {
+    dataa = dataaa;
+    location.reload();
+  }
+  console.log(dataa);
 }
 // ======================for mega nav bar======================
 // let a = document.querySelector(".prodlist");
@@ -232,23 +240,23 @@ function modalll(e, i) {
   brandd.appendChild(brandiv);
   // ========================================================
 
-  if (i < price.length) {
-    let pricediv = document.createElement("div");
-    let priceatribute = document.createAttribute("class");
-    brandatribute.value = "form-check";
-    pricediv.setAttributeNode(priceatribute);
-    let pricee = price[i].toUpperCase();
-    pricediv.innerHTML = `
-     <input class="form-check-input  btn-outline-light checkk" style="background-color:gray;"type="checkbox" value="" id="defaultCheck1"onclick="filterObjects(${
-       i + 40
-     })">
-  <label class="form-check-label"id="${i + 40}" for="defaultCheck1">
-    ${pricee}<span>-400 rs</span>
-  </label>
-  `;
-    // console.log(pricediv);
-    priceee.appendChild(pricediv);
-  }
+  //   if (i < price.length) {
+  //     let pricediv = document.createElement("div");
+  //     let priceatribute = document.createAttribute("class");
+  //     brandatribute.value = "form-check";
+  //     pricediv.setAttributeNode(priceatribute);
+  //     let pricee = price[i].toUpperCase();
+  //     pricediv.innerHTML = `
+  //      <input class="form-check-input  btn-outline-light checkk" style="background-color:gray;"type="checkbox" value="" id="defaultCheck1"onclick="filterObjects(${
+  //        i + 40
+  //      })">
+  //   <label class="form-check-label"id="${i + 40}" for="defaultCheck1">
+  //     ${pricee}<span>-400 rs</span>
+  //   </label>
+  //   `;
+  //     // console.log(pricediv);
+  //     priceee.appendChild(pricediv);
+  //   }
 }
 function productDisplay(l) {
   window.document.location = "TEASHIRT-LANDINGPAGE.HTML" + "?id=" + l;
