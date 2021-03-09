@@ -1,6 +1,7 @@
 let dataa = [];
 let p = [];
 let dim = 0;
+let id;
 fetch("./TEASHIRT.JSON")
   .then((response) => {
     return response.json();
@@ -9,6 +10,7 @@ fetch("./TEASHIRT.JSON")
     console.log(data);
     dataa.push(...data);
     // dataaa.push(...data);
+    id = data.length + 2;
     console.log(dataa);
     // dati();
   });
@@ -42,7 +44,7 @@ let price = ["200-400 rs", "400-700 rs", "7000-1900 rs"];
 
 function filterObjects(l) {
   let ding = document.getElementById(l);
-
+  console.log(ding);
   p.push(ding.innerText);
   console.log(p);
   if (p.length > 1) {
@@ -63,6 +65,7 @@ function filterObjects(l) {
       // let list = document.getElementById("listPage");
       // let pin = list.removeChild(list.childNodes[dataa.length + 1]);
       let list = document.getElementById(i + 1);
+      console.log(list);
       list.remove();
     });
   }, 1000);
@@ -70,7 +73,10 @@ function filterObjects(l) {
   let colornames = dataa.filter((e, i) => {
     // let ding = document.getElementById(l);
 
-    if (Object.values(e).includes(lowr) || e[lowr] == true) {
+    if (
+      (Object.values(e).includes(lowr) || e[lowr] == true) &&
+      i < dataa.length
+    ) {
       console.log(lowr);
 
       let listPageDiv = document.createElement("div");
@@ -82,7 +88,7 @@ function filterObjects(l) {
       listPageDiv.setAttributeNode(listPageAtributeid);
 
       listPageDiv.innerHTML = `
-            <a href="TEASHIRT-LANDINGPAGE.HTML" style="text-decoration: none;"onclick="productDisplay(${
+            <a  style="text-decoration: none;"onclick="productDisplay(${
               e.id
             })" >
             <div class="card mt-4 mr-5 back" style="width: 13rem ;color:grey;">
@@ -132,7 +138,7 @@ let modall = document.querySelector(".modalapearence");
 let brandd = document.querySelector(".brand");
 let priceee = document.querySelector(".priceee");
 setTimeout(() => {
-  console.log(dataa);
+  // console.log(dataa);
   let colornames = dataa.forEach((e, i) => {
     let listPageDiv = document.createElement("div");
     let listPageAtribute = document.createAttribute("class");
@@ -141,8 +147,10 @@ setTimeout(() => {
     let listPageAtributeid = document.createAttribute("id");
     listPageAtributeid.value = `${e.id}`;
     listPageDiv.setAttributeNode(listPageAtributeid);
+    //href="TEASHIRT-LANDINGPAGE.HTML"
+    id = e.id;
     listPageDiv.innerHTML = `
-          <a href="TEASHIRT-LANDINGPAGE.HTML"  style="text-decoration: none;" onclick="productDisplay(${
+          <a   style="text-decoration: none;" onclick="productDisplay(${
             e.id
           })" >
           <div class="card mt-4 mr-5 back" style="width: 13rem ;color:grey;">
@@ -158,10 +166,17 @@ setTimeout(() => {
 `;
     listPage.appendChild(listPageDiv);
   });
-}, 1000);
+  // mainId();
+}, 800);
+// setTimeout(() => {
+// function mainId() {
+// console.log(id);
+
 colorNames.forEach((e, i) => {
   modalll(e, i);
 });
+// }
+// }, 1500);
 
 function modalll(e, i) {
   let colordiv = document.createElement("div");
@@ -174,9 +189,9 @@ function modalll(e, i) {
 
   colordiv.innerHTML = `
     <input class="form-check-input btn-outline-light checkk " style="background-color:${e};"type="checkbox" value="" id="defaultCheck1" onclick="filterObjects(${
-    i + 10
+    i + 100
   })">
-  <label class="form-check-label dinga" id="${i + 10}"for="defaultCheck1" >
+  <label class="form-check-label dinga" id="${i + 100}"for="defaultCheck1" >
     ${col}
   </label>
   `;
@@ -228,19 +243,15 @@ function modalll(e, i) {
        i + 40
      })">
   <label class="form-check-label"id="${i + 40}" for="defaultCheck1">
-    ${pricee}
+    ${pricee}<span>-400 rs</span>
   </label>
   `;
     // console.log(pricediv);
     priceee.appendChild(pricediv);
   }
 }
-
 function productDisplay(l) {
-  // let p = l;
-//   localStorage.setItem("id", l);
-    window.document.location = "TEASHIRT-LANDINGPAGE.HTML" + "?id=" + l;
-
+  window.document.location = "TEASHIRT-LANDINGPAGE.HTML" + "?id=" + l;
 }
 // =======================================
 function SearchFunction() {
