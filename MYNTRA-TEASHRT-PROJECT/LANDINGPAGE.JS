@@ -21,6 +21,7 @@ let branddetail = document.querySelector(".branddetails");
 let pricedeatil = document.querySelector(".prisedetails");
 let sizedeatil = document.querySelector(".size");
 let modall = document.querySelector(".modall");
+let reviews = document.querySelector(".reviews");
 let p = Date();
 console.log(p);
 function product() {
@@ -34,6 +35,22 @@ function product() {
       pricedeatil.innerHTML = e.price;
       wishlistId = e.id;
       // modall.innerHTML = e.brand;
+      e.coments.forEach((k, n) => {
+        let rewievDiv = document.createElement("div");
+        let reviewAtribute = document.createAttribute("class");
+        reviewAtribute.value = "col ";
+        rewievDiv.innerHTML = `
+        <hr>
+        <div class="col"> 
+        <div class="row row-cols-2">
+    <div class="col" style="color:gray"><h4>reviwer Name :</h4>${k.reviewdBy} </div>
+    <div class="col" style="color:gray"><h5>message :</h5> ${k.review}</div>
+         </div>
+        </div>
+        <hr>
+`;
+        reviews.appendChild(rewievDiv);
+      });
       e.img.forEach((l, i) => {
         let landPageDiv = document.createElement("div");
         let landPageAtribute = document.createAttribute("class");
@@ -131,17 +148,4 @@ function wishListDisplay() {
     window.document.location = "TEASHIRT-WISHLIST.HTML" + "?id=" + wishlistId;
   }, 1000);
 }
-//  if (localStorage.getItem("wishlists") == null) {
-//    let wishlist = [];
-//    let size = wishlist.length;
-//    wishlist[size] = l;
-//    localStorage.setItem("wishlists", JSON.stringify(wishlist));
-//    console.log(wishlist);
-//  } else {
-//    let lists = localStorage.getItem("wishlists");
-//    console.log(JSON.parse(lists));
-//    let wishlistss = JSON.parse(lists);
-//    localStorage.setItem("wishlists", JSON.stringify(wishlistss));
-//    let listss = localStorage.getItem("wishlists");
-//    console.log(listss);
-//  }
+
