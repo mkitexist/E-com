@@ -8,7 +8,6 @@ fetch("./TEASHIRT.JSON")
     return response.json();
   })
   .then((data) => {
-    console.log(data);
     dataa.push(...data);
 
     let paramId = new URL(document.location).searchParams;
@@ -17,7 +16,6 @@ fetch("./TEASHIRT.JSON")
   });
 let lists = localStorage.getItem("wishlists");
 
-console.log(JSON.parse(lists));
 let wishlistss = JSON.parse(lists);
 wishlistt = JSON.parse(lists);
 let size = wishlistss.length;
@@ -31,7 +29,6 @@ function wishList() {
   let m = dataa.forEach((e, i) => {
     let c = wishlistt.forEach((l, n) => {
       if (e.id == l) {
-        console.log(e.id, l);
 
         let moddiv = document.createElement("tr");
         totalprice += e.price;
@@ -60,7 +57,6 @@ function wishlistDelete(i) {
   localStorage.setItem("wishlists", JSON.stringify(wishlistt));
   location.reload();
 
-  console.log(wishlistt);
 }
 if (wishlistt.length == 0) {
   let wishDiv = document.createElement("div");
