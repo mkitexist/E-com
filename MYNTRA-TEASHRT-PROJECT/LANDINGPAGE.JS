@@ -7,11 +7,8 @@ fetch("./TEASHIRT.JSON")
     return response.json();
   })
   .then((data) => {
-    console.log(data);
     dataa.push(...data);
-    // dataaa.push(...data);
-
-    // landing(data);
+   
     let paramId = new URL(document.location).searchParams;
     productId = paramId.get("id");
     product();
@@ -23,18 +20,13 @@ let sizedeatil = document.querySelector(".size");
 let modall = document.querySelector(".modall");
 let reviews = document.querySelector(".reviews");
 let p = Date();
-console.log(p);
 function product() {
-  console.log(productId);
-  console.log(typeof productId);
-  console.log(dataa);
+
   let colornames = dataa.forEach((e, i) => {
     if (e.id == productId) {
-      console.log(e.brand, e.price);
       branddetail.innerHTML = e.brand;
       pricedeatil.innerHTML = e.price;
       wishlistId = e.id;
-      // modall.innerHTML = e.brand;
       e.coments.forEach((k, n) => {
         let rewievDiv = document.createElement("div");
         let reviewAtribute = document.createAttribute("class");
@@ -57,9 +49,7 @@ function product() {
         landPageAtribute.value = "col-8 col-sm-5 ";
         landPageDiv.setAttributeNode(landPageAtribute);
         let modelDiv = document.createElement("div");
-        // let modelAtribute = document.createAttribute("class");
-        // modelAtribute.value = "col-12 col-sm-5 ";
-        // modelDiv.setAttributeNode(modelAtribute);
+       
 
         landPageDiv.innerHTML = `
         <div class="card mt-2 landimg" style="width: 17rem;">
@@ -98,7 +88,6 @@ function product() {
 }
 
 function size(e, i) {
-  console.log(e.size[i]);
   if (i < e.size.length) {
     let sizeDiv = document.createElement("div");
     let sizeAtribute = document.createAttribute("class");
@@ -113,16 +102,13 @@ function size(e, i) {
   }
 }
 function wishListDisplay() {
-  // console.log(l);
   if (localStorage.getItem("wishlists") == null) {
     let wishlist = [];
     let size = wishlist.length;
     wishlist[size] = +productId;
     localStorage.setItem("wishlists", JSON.stringify(wishlist));
-    console.log(wishlist);
   } else {
     let lists = localStorage.getItem("wishlists");
-    console.log(JSON.parse(lists));
     let wishlistss = JSON.parse(lists);
     wishlisttt = JSON.parse(lists);
     let size = wishlistss.length;
@@ -141,8 +127,7 @@ function wishListDisplay() {
           "TEASHIRT-WISHLIST.HTML" + "?id=" + wishlistId;
       }, 2700);
     }
-    // let listss = localStorage.getItem("wishlists");
-    // console.log(listss);
+ 
   }
   setTimeout(() => {
     window.document.location = "TEASHIRT-WISHLIST.HTML" + "?id=" + wishlistId;
