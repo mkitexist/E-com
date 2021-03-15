@@ -1,7 +1,7 @@
 .navbar {
   height: 70px;
   font-family: Whitney, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Helvetica, Arial, sans-serif;
+ Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   background-color: #ffff;
 }
@@ -17,8 +17,24 @@
 .marr {
   position: relative !important;
   left: 45px;
-  font-size: 20px;
-  font-weight: 400;
+  font-size: 13px;
+  font-weight: 700;
+  color: black !important;
+}
+
+.navfont {
+  color: rgba(7, 7, 7, 0.801) !important;
+}
+
+i {
+  font-size: 17px;
+  font-weight: 900 !important;
+}
+
+.iconfont {
+  color: #070707 !important;
+  font-size: 12px;
+  font-weight: 600 !important;
 }
 
 .log {
@@ -50,13 +66,13 @@
 
 .gridd {
   position: relative !important;
-  top: 70px;
+  top: 100px;
   margin-top: 50px;
 }
 
 .griddd {
   position: relative !important;
-  top: 110px;
+  top: 70px;
 }
 
 .checkk {
@@ -66,11 +82,11 @@
 .listzoom:hover {
   /* transition; */
   -webkit-transition-delay: 0s;
-  transition-delay: 0s;
+          transition-delay: 0s;
   -webkit-transition-duration: 1s;
-  transition-duration: 1s;
+          transition-duration: 1s;
   -webkit-transform: scale(0.7, 0.7);
-  transform: scale(0.7, 0.7);
+          transform: scale(0.7, 0.7);
   -webkit-transition-property: -webkit-transform;
   transition-property: -webkit-transform;
   transition-property: transform;
@@ -85,126 +101,10 @@
 
 .landTop {
   position: relative !important;
-  top: 110px;
+  top: 80px;
 }
 
 @media (max-width: 990px) {
-  .filterrr {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
-    display: flex !important;
-    -webkit-box-pack: center !important;
-    -ms-flex-pack: center !important;
-    justify-content: center !important;
-    -webkit-box-align: center !important;
-    -ms-flex-align: center !important;
-    align-items: center !important;
-    -ms-flex-wrap: wrap !important;
-    flex-wrap: wrap !important;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-  }
-  .filterrrr {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
-    display: flex !important;
-    -webkit-box-pack: center !important;
-    -ms-flex-pack: center !important;
-    justify-content: center !important;
-    -webkit-box-align: center !important;
-    -ms-flex-align: center !important;
-    align-items: center !important;
-    -ms-flex-wrap: wrap !important;
-    flex-wrap: wrap !important;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    height: 150px !important;
-  }
-  .listt {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
-    display: flex !important;
-    -webkit-box-pack: center !important;
-    -ms-flex-pack: center !important;
-    justify-content: center !important;
-    -webkit-box-align: center !important;
-    -ms-flex-align: center !important;
-    align-items: center !important;
-    -ms-flex-wrap: wrap !important;
-    flex-wrap: wrap !important;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-  }
-  .landdd {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
-    display: flex !important;
-    -webkit-box-pack: center !important;
-    -ms-flex-pack: center !important;
-    justify-content: center !important;
-    -webkit-box-align: center !important;
-    -ms-flex-align: center !important;
-    align-items: center !important;
-    -ms-flex-wrap: wrap !important;
-    flex-wrap: wrap !important;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-  }
-  .landimg {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
-    display: flex !important;
-    -webkit-box-pack: center !important;
-    -ms-flex-pack: center !important;
-    justify-content: center !important;
-    -webkit-box-align: center !important;
-    -ms-flex-align: center !important;
-    align-items: center !important;
-    -ms-flex-wrap: wrap !important;
-    flex-wrap: wrap !important;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-  }
-  .filterr {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
-    display: flex !important;
-    -webkit-box-pack: center !important;
-    -ms-flex-pack: center !important;
-    justify-content: center !important;
-    -webkit-box-align: center !important;
-    -ms-flex-align: center !important;
-    align-items: center !important;
-    -ms-flex-wrap: wrap !important;
-    flex-wrap: wrap !important;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-  }
-  .dropp {
-    display: none !important;
-  }
-  form {
-    display: none !important;
-  }
-  .sta {
-    display: none !important;
-  }
-  .marr {
-    position: relative !important;
-    top: 5px;
-  }
   .searchBar {
     position: relative !important;
     left: 20px !important;
@@ -212,6 +112,16 @@
   .iconss > i {
     position: relative !important;
     left: 130px !important;
+  }
+}
+
+.scrolll {
+  height: 400px;
+}
+
+@media (max-width: 600px) {
+  .scrolll {
+    height: 130px;
   }
 }
 /*# sourceMappingURL=teashirtforsas.css.map */
