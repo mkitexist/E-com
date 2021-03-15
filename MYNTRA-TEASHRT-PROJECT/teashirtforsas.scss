@@ -34,8 +34,21 @@ $disp-size: 990px;
 .marr {
   position: $relative;
   left: 45px;
-  font-size: 20px;
-  font-weight: 400;
+  font-size: 13px;
+  font-weight: 700;
+  color: black !important;
+}
+.navfont {
+  color: rgba(7, 7, 7, 0.801) !important;
+}
+i {
+  font-size: 17px;
+  font-weight: 900 !important;
+}
+.iconfont {
+  color: rgb(7, 7, 7) !important;
+  font-size: 12px;
+  font-weight: 600 !important;
 }
 .log {
   position: $relative;
@@ -92,41 +105,10 @@ $disp-size: 990px;
 }
 .landTop {
   position: $relative;
-  top: 110px;
+  top: 80px;
 }
 @include diplayResponsive {
-  .filterrr {
-    @include forRespone(row);
-  }
-  .filterrrr {
-    @include forRespone(row);
-    height: 150px !important;
-  }
-  .listt {
-    @include forRespone(column);
-  }
-  .landdd {
-    @include forRespone(column);
-  }
-  .landimg {
-    @include forRespone(column);
-  }
-  .filterr {
-    @include forRespone(column);
-  }
-  .dropp {
-    display: $display-none;
-  }
-  form {
-    display: $display-none;
-  }
-  .sta {
-    display: $display-none;
-  }
-  .marr {
-    position: $relative;
-    top: 5px;
-  }
+  
   .searchBar {
     position: $relative;
 
@@ -138,5 +120,14 @@ $disp-size: 990px;
 
       left: 130px !important;
     }
+  }
+}
+
+.scrolll {
+  height: 400px;
+}
+@media (max-width: 600px) {
+  .scrolll {
+    height: 130px;
   }
 }
